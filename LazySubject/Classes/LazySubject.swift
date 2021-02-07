@@ -12,12 +12,14 @@ import RxCocoa
 public final class LazySubject<T: Equatable> {
     public let state = BehaviorRelay<State>(value: .initializing)
     private let disposeBag = DisposeBag()
+    private var disposable: Disposable?
     
     public var value: T?
     public var request: Single<T> {
         didSet {
             value = nil
             state.accept(.initializing)
+            disposable?.dispose()
         }
     }
     public var dataModifier: ((T) -> T)?
@@ -28,16 +30,25 @@ public final class LazySubject<T: Equatable> {
         self.dataModifier = dataModifier
     }
     
-    public func reload() {
-        if state.value == .loading {return}
+    public func reload(force: Bool = false) {
+        // prevent dupplicating request
+        if force, state.value == .loading {return}
+        
+        // cancel old request if it's exist
+        disposable?.dispose()
+        
+        // new state
+        if force {value = nil}
         state.accept(.loading)
-        request
+        
+        // send request
+        let disposable = request
             .subscribe(onSuccess: {newData in
                 self.handleNewData(newData)
             }, onFailure: {error in
                 self.handleError(error)
             })
-            .disposed(by: disposeBag)
+        disposable.disposed(by: disposeBag)
     }
     
     private func handleNewData(_ newData: T) {

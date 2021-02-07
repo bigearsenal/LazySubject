@@ -5,6 +5,4 @@ platform :ios, '12.0'
 target 'LazySubject_Tests' do
   inherit! :search_paths
   pod 'LazySubject', :path => '../'
-  pod 'RxBlocking'
-  
 end

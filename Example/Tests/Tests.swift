@@ -1,6 +1,5 @@
 import XCTest
 import LazySubject
-import RxBlocking
 import RxSwift
 
 class Tests: XCTestCase {

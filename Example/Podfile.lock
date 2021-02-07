@@ -1,23 +1,19 @@
 PODS:
   - LazySubject (0.1.0):
-    - RxCocoa (~> 6.0.0)
-    - RxSwift (~> 6.0.0)
-  - RxBlocking (6.0.0):
-    - RxSwift (= 6.0.0)
-  - RxCocoa (6.0.0):
-    - RxRelay (= 6.0.0)
-    - RxSwift (= 6.0.0)
-  - RxRelay (6.0.0):
-    - RxSwift (= 6.0.0)
-  - RxSwift (6.0.0)
+    - RxCocoa (~> 5.1.1)
+    - RxSwift (~> 5.1.1)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
 
 DEPENDENCIES:
   - LazySubject (from `../`)
-  - RxBlocking
 
 SPEC REPOS:
   trunk:
-    - RxBlocking
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -27,12 +23,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LazySubject: 609b6eda61f3609a1fee0371bef315ca85b12321
-  RxBlocking: c025b8c6fe08c5b18c039b5b11d41ec413f8a59e
-  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
-  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
-  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  LazySubject: 9d7d35af4a5204142e0b5587a3975292f19ab4a1
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 011fe35bd2fecfe1cdbfecd72dc081de3d5f9c52
+PODFILE CHECKSUM: 324fbb104ac6a54f68147337120467891eae53e1
 
 COCOAPODS: 1.10.0

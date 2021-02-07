@@ -1,5 +1,5 @@
 import XCTest
-import StateSubject
+import LazySubject
 import RxBlocking
 import RxSwift
 
@@ -26,7 +26,7 @@ class Tests: XCTestCase {
             .do(afterSuccess: {_ in
                 expectation.fulfill()
             })
-        let subject = StateSubject(value: "", request: request)
+        let subject = LazySubject(value: "", request: request)
         
         XCTAssertEqual(subject.state.value, .initializing)
         XCTAssertEqual(subject.value, "")

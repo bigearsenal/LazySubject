@@ -1,13 +1,10 @@
 use_frameworks!
 
-platform :ios, '9.0'
+platform :ios, '12.0'
 
-target 'StateSubject_Example' do
-  pod 'StateSubject', :path => '../'
-
-  target 'StateSubject_Tests' do
-    inherit! :search_paths
-    pod 'RxBlocking'
-    
-  end
+target 'LazySubject_Tests' do
+  inherit! :search_paths
+  pod 'LazySubject', :path => '../'
+  pod 'RxBlocking'
+  
 end

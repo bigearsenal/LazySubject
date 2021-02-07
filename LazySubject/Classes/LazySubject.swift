@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-public final class StateSubject<T: Equatable> {
+public final class LazySubject<T: Equatable> {
     public let state = BehaviorRelay<State>(value: .initializing)
     private let disposeBag = DisposeBag()
     

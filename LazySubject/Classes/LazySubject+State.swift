@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension StateSubject {
+extension LazySubject {
     public enum State: Equatable {
-        public static func == (lhs: StateSubject<T>.State, rhs: StateSubject<T>.State) -> Bool {
+        public static func == (lhs: State, rhs: State) -> Bool {
             switch (lhs, rhs) {
             case (.initializing, .initializing), (.loading, .loading), (.loaded, .loaded):
                 return true

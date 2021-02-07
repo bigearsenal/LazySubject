@@ -10,11 +10,16 @@ import RxSwift
 import RxCocoa
 
 public final class StateSubject<T: Equatable> {
-    public let state = BehaviorRelay<State>(value: .loading)
+    public let state = BehaviorRelay<State>(value: .initializing)
     private let disposeBag = DisposeBag()
     
     public var value: T?
-    public var request: Single<T>
+    public var request: Single<T> {
+        didSet {
+            value = nil
+            state.accept(.initializing)
+        }
+    }
     public var dataModifier: ((T) -> T)?
     
     public init(value: T? = nil, request: Single<T>, dataModifier: ((T) -> T)? = nil) {

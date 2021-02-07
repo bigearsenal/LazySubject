@@ -7,7 +7,7 @@ target 'StateSubject_Example' do
 
   target 'StateSubject_Tests' do
     inherit! :search_paths
-
+    pod 'RxBlocking'
     
   end
 end

@@ -28,14 +28,14 @@ class Tests: XCTestCase {
             })
         let subject = LazySubject(value: "", request: request)
         
-        XCTAssertEqual(subject.state.value, .initializing)
+        XCTAssertEqual(subject.state, .initializing)
         XCTAssertEqual(subject.value, "")
         
         subject.reload()
         
         waitForExpectations(timeout: 2, handler: nil)
         
-        XCTAssertEqual(subject.state.value, .loaded)
+        XCTAssertEqual(subject.state, .loaded)
         XCTAssertEqual(subject.value, "Test")
         
         // In case of failure
@@ -56,6 +56,6 @@ class Tests: XCTestCase {
         
         waitForExpectations(timeout: 2, handler: nil)
         
-        XCTAssertEqual(subject.state.value, .error(error))
+        XCTAssertEqual(subject.state, .error(error))
     }
 }

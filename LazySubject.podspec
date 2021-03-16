@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/bigearsenal/LazySubject.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/bigearsenal'
 
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '13.0'
 
   s.source_files = 'LazySubject/Classes/**/*'
   
@@ -38,6 +38,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'RxSwift', '~> 5.1.1'
-  s.dependency 'RxCocoa', '~> 5.1.1'
+  s.dependency 'RxSwift'
+  s.dependency 'RxCocoa'
 end

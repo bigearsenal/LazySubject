@@ -7,22 +7,20 @@
 
 import Foundation
 
-extension LazySubject {
-    public enum State: Equatable {
-        public static func == (lhs: State, rhs: State) -> Bool {
-            switch (lhs, rhs) {
-            case (.initializing, .initializing), (.loading, .loading), (.loaded, .loaded):
-                return true
-            case (.error(let error1), .error(let error2)):
-                return error1.localizedDescription == error2.localizedDescription
-            default:
-                return false
-            }
+public enum LazySubjectState: Equatable {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        switch (lhs, rhs) {
+        case (.initializing, .initializing), (.loading, .loading), (.loaded, .loaded):
+            return true
+        case (.error(let error1), .error(let error2)):
+            return error1.localizedDescription == error2.localizedDescription
+        default:
+            return false
         }
-        
-        case initializing
-        case loading
-        case loaded
-        case error(Error)
     }
+    
+    case initializing
+    case loading
+    case loaded
+    case error(Error)
 }

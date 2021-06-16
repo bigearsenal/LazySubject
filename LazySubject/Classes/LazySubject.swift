@@ -14,7 +14,7 @@ public final class LazySubject<T: Equatable> {
     private let disposeBag = DisposeBag()
     private var disposable: Disposable?
     
-    private let _stateRelay = BehaviorRelay<State>(value: .initializing)
+    private let _stateRelay = BehaviorRelay<LazySubjectState>(value: .initializing)
     
     // MARK: - Public
     public private(set) var value: T?
@@ -26,10 +26,10 @@ public final class LazySubject<T: Equatable> {
         }
     }
     public var dataModifier: ((T) -> T)?
-    public var state: State {
+    public var state: LazySubjectState {
         _stateRelay.value
     }
-    public var observable: Observable<State> {
+    public var observable: Observable<LazySubjectState> {
         _stateRelay.asObservable()
     }
     

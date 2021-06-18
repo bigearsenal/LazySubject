@@ -32,6 +32,9 @@ public final class LazySubject<T: Equatable> {
     public var observable: Observable<LazySubjectState> {
         _stateRelay.asObservable()
     }
+    public var dataObservable: Observable<T?> {
+        observable.map {[weak self] _ in self?.value}
+    }
     
     // MARK: - Initializer
     public init(value: T? = nil, request: Single<T>, dataModifier: ((T) -> T)? = nil) {

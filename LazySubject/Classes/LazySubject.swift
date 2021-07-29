@@ -73,4 +73,11 @@ public final class LazySubject<T: Equatable> {
     private func handleError(_ error: Error) {
         _stateRelay.accept(.error(error))
     }
+    
+    public func updateValue(_ value: T) {
+        if _stateRelay.value == .loaded {
+            self.value = value
+            _stateRelay.accept(.loaded)
+        }
+    }
 }

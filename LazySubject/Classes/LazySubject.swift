@@ -57,10 +57,10 @@ public final class LazySubject<T: Equatable> {
         
         // send request
         let disposable = request
-            .subscribe(onSuccess: {newData in
-                self.handleNewData(newData)
-            }, onError: {error in
-                self.handleError(error)
+            .subscribe(onSuccess: {[weak self] newData in
+                self?.handleNewData(newData)
+            }, onError: {[weak self] error in
+                self?.handleError(error)
             })
         disposable.disposed(by: disposeBag)
     }
